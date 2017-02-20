@@ -1,6 +1,11 @@
 <br /><br />
-<div id="view-content" ng-controller="myCtrl_update" ng-init="displayData()" >
+<div id="view-content" ng-controller="myCtrl_update" ng-init="displayUser()" >
 
+
+	<tr ng-repeat="user in userinfo" >
+	<span> : {{ user.id }}</span>
+	<span> : {{ user.name }}</span>
+		</tr>
 	<div  >
 		<dl class="zend_form">
 

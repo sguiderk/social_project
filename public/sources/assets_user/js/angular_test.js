@@ -11,7 +11,7 @@ app.controller('myCtrl_update',function($scope,$http){
         })
             .success(function (data, status, headers, config) {
                 console.log("Updated Successfully!");
-                $scope.displayData();
+                $scope.displayUser();
             })
             .error(function(data, status) {
                 console.error('Repos error', status, data);
@@ -19,7 +19,22 @@ app.controller('myCtrl_update',function($scope,$http){
         ;
     }
 
-    $scope.displayData = function(){
+    $scope.displayUser = function(){
+        $http.get("../rest/user")
+            .success(function(data){
+
+                $scope.data1 = data.entries;
+
+                $scope.userinfo = data.loginHeader;
+
+
+                alert($scope.userinfo);
+
+            });
+    }
+
+
+    $scope.findUser = function($id){
         $http.get("../rest/user")
             .success(function(data){
                 $scope.data1 = data.entries;

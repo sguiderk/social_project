@@ -83,16 +83,13 @@ class RestController extends Zend_Rest_Controller
         $registre2->save($user);
 
 
-
-
         $this -> view -> message = 'user has updated in success';
-
-
 
 
 
     }
 
+    
     
     public function getAction()
     {
