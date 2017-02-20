@@ -54,13 +54,16 @@ class RestController extends Zend_Rest_Controller
     {
         // action body
 
-        $id = $this->getRequest()->getParam('id');
 
-        $name = $this->getRequest()->getParam('name');
+        $data = json_decode(file_get_contents("php://input"));
 
-        $email = $this->getRequest()->getParam('email');
+        $id =  $data->id;
 
-        $password = $this->getRequest()->getParam('password');
+        $name = $data->name;
+
+        $email = $data->email;;
+
+        $password = $data->password;;
 
         $registre2 = new  Application_Model_UserMapper();
 

@@ -1,7 +1,7 @@
 <br /><br />
-<div id="view-content">
+<div id="view-content" ng-controller="myCtrl_update" ng-init="displayData()" >
 
-	<div ng-controller="myCtrl_update"  >
+	<div  >
 		<dl class="zend_form">
 
 			<dt id="id-label">
@@ -12,7 +12,7 @@
 
 			<dd id="id-element">
 
-				<input type="text" value="<?php print($this->entries[0]->id); ?>"  ng-model="user.id" />
+				<input type="text"   ng-model="user.id" />
 
 			</dd>
 
@@ -24,7 +24,7 @@
 
 			<dd id="email-element">
 
-				<input type="text"  value="<?php print($this->entries[0]->email); ?>" ng-model="user.email" />
+				<input type="text"   ng-model="user.email" />
 
 			</dd>
 
@@ -36,7 +36,7 @@
 
 			<dd id="login-element">
 
-				<input type="text"  value="<?php print($this->entries[0]->name); ?>" ng-model="user.name" />
+				<input type="text" ng-model="user.name" />
 
 			</dd>
 
@@ -48,7 +48,7 @@
 
 			<dd id="password-element">
 
-				<input type="password"  value="<?php print($this->entries[0]->password); ?>" ng-model="user.password" />
+				<input type="password"  ng-model="user.password" />
 
 			</dd>
 
@@ -61,22 +61,27 @@
 	</div>
 
 
-</div>
+
+	<div >
+
+		<table  >
+
+			<tr ng-repeat="x in data1" >
 
 
-<div  ng-controller="myCtrl_update"  ng-init="displayData()" >
-
-	<table  >
-
-		<tr ng-repeat="x in data1" >
-
-
-			<td>{{ x.id }} | {{ x.name }} | {{ x.email }} | </td>
+				<td>{{ x.id }} | {{ x.name }} | {{ x.email }} | </td>
 
 			</tr>
 
 		</table>
 
+	</div>
+
+
+
+
 </div>
+
+
 
 

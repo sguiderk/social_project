@@ -3,7 +3,7 @@ var app = angular.module('myApp',[]);
 app.controller('myCtrl_update',function($scope,$http){
 
     $scope.updateData=function(){
-        $http.get("../rest/updateuser", {
+        $http.post("../rest/updateuser", {
             'id':$scope.user.id,
             'name':$scope.user.name,
             'email': $scope.user.email,
