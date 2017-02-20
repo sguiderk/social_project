@@ -1,0 +1,244 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+<html>
+	<head>
+	    <?php echo $this->headtitle() ?>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<!--[if lte IE 8]><script src="/sources/assets_user/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="/sources/assets_user/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="/sources/assets_user/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="/sources/assets_user/css/ie8.css" /><![endif]-->
+	</head>
+	
+	<?php echo $this->doctype() ?>
+
+
+	<body ng-app="myApp" >
+		<!-- Wrapper -->
+
+			<div id="wrapper">
+				<!-- Header -->
+					<header id="header" class="alt">
+						<a href="/index" class="logo"><strong>Reseau social</strong> <span>X</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+
+						<?php
+
+						if(isset($this->loginHeader)) {
+
+							if($this->loginHeader->pathimg!=null){
+								print '<img style="width: 50px;margin-left: 20px; margin-right: 20px;" src="/public/img/'.$this->loginHeader->pathimg.'"/>';
+							}else{  ?>
+
+								<ul class="icons">
+									<li>	<a class="alt icon fa-user" href="#"></a></li>
+								</ul>
+
+							<?php } ?>
+
+
+
+							<span> Salut  <strong>  <!-- <a href="<?php /*echo $this->url(array('controller'=>'user','action'=> 'update'),'default',true)."?user=".$this->loginHeader->id;*/?>" > <?php /*print $this->loginHeader->name */?></a>
+
+							-->
+
+
+							<a href="<?php echo $this->url(array('controller'=>'user-angular','action'=> 'update'),'default',true)."?id=".$this->loginHeader->id;?>" > <?php print $this->loginHeader->name ?></a></strong></span>
+
+							<a class="button special icon fa-sign-out" href="/login/logout"> Se déconnecte </a>
+
+							<?php
+						}else{ ?>
+
+							<a class="button special icon fa-sign-in" href="/login/logout"> Connectez-vous </a>
+
+							<span>Ou</span>
+
+							<a  class="button special icon fa-pencil-square-os" href="register">Inscrivez-ous</a>
+					  <?php }?>
+
+
+						
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<?php echo 	$this -> navigation(); ?>
+					</nav>
+
+					<?php echo $this->layout()->content ?>
+
+
+				<!-- Main 
+					<div id="main">
+							<section id="one" class="tiles">
+								<article>
+									<span class="image">
+										<img src="images/pic01.jpg" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="landing.html" class="link">Aliquam</a></h3>
+										<p>Ipsum dolor sit amet</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="<?php echo $this->baseUrl() ?>/images/pic02.jpg" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="landing.html" class="link">Tempus</a></h3>
+										<p>feugiat amet tempus</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="<?php echo $this->baseUrl() ?>/images/pic03.jpg" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="landing.html" class="link">Magna</a></h3>
+										<p>Lorem etiam nullam</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="<?php echo $this->baseUrl() ?>/images/pic04.jpg" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="landing.html" class="link">Ipsum</a></h3>
+										<p>Nisl sed aliquam</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="images/pic05.jpg" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="landing.html" class="link">Consequat</a></h3>
+										<p>Ipsum dolor sit amet</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="images/pic06.jpg" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="landing.html" class="link">Etiam</a></h3>
+										<p>Feugiat amet tempus</p>
+									</header>
+								</article>
+							</section>
+
+			
+							<section id="two">
+								<div class="inner">
+									<header class="major">
+										<h2>Massa libero</h2>
+									</header>
+									<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
+									<ul class="actions">
+										<li><a href="landing.html" class="button next">Get Started</a></li>
+									</ul>
+								</div>
+							</section>
+
+					</div> 
+
+					-->
+
+				<!-- Contact 
+					<section id="contact">
+						<div class="inner">
+							<section>
+								<form method="post" action="#">
+									<div class="field half first">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field half">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="6"></textarea>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" class="special" /></li>
+										<li><input type="reset" value="Clear" /></li>
+									</ul>
+								</form>
+							</section>
+							<section class="split">
+								<section>
+									<div class="contact-method">
+										<span class="icon alt fa-envelope"></span>
+										<h3>Email</h3>
+										<a href="#">information@untitled.tld</a>
+									</div>
+								</section>
+								<section>
+									<div class="contact-method">
+										<span class="icon alt fa-phone"></span>
+										<h3>Phone</h3>
+										<span>(000) 000-0000 x12387</span>
+									</div>
+								</section>
+								<section>
+									<div class="contact-method">
+										<span class="icon alt fa-home"></span>
+										<h3>Address</h3>
+										<span>1234 Somewhere Road #5432<br />
+										Nashville, TN 00000<br />
+										United States of America</span>
+									</div>
+								</section>
+							</section>
+						</div>
+					</section> -->
+
+		<!-- <div ng-app="app">
+					<div ng-controller="exempleCtrl">
+
+						<input type="text" ng-model="name" placeholder="Entrer votre nom" />
+						HELLO  <strong>{{name}}!</strong>
+					</div>
+				</div> -->
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li><?php echo 'La version de Zend est : '.Zend_Version::getLatest(); ?> </li>
+							</ul>
+						</div>
+					</footer>
+
+		<!-- Scripts -->
+				<script  src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+				<script src="/sources/assets_user/js/angular_test.js"></script>
+			<script src="/sources/assets_user/js/jquery.min.js"></script>
+			<script src="/sources/assets_user/js/jquery.scrolly.min.js"></script>
+			<script src="/sources/assets_user/js/jquery.scrollex.min.js"></script>
+			<script src="/sources/assets_user/js/skel.min.js"></script>
+			<script src="/sources/assets_user/js/util.js"></script>
+			<!--[if lte IE 8]><script src="sources/assets_user/js/ie/respond.min.js"></script><![endif]-->
+			<script src="/sources/assets_user/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,82 @@
+<br /><br />
+<div id="view-content">
+
+	<div ng-controller="myCtrl_update"  >
+		<dl class="zend_form">
+
+			<dt id="id-label">
+
+				<label for="id" ">id</label>
+
+			</dt>
+
+			<dd id="id-element">
+
+				<input type="text" value="<?php print($this->entries[0]->id); ?>"  ng-model="user.id" />
+
+			</dd>
+
+			<dt id="email-label">
+
+				<label for="email" >Email</label>
+
+			</dt>
+
+			<dd id="email-element">
+
+				<input type="text"  value="<?php print($this->entries[0]->email); ?>" ng-model="user.email" />
+
+			</dd>
+
+			<dt id="login-label">
+
+				<label for="login" >Login</label>
+
+			</dt>
+
+			<dd id="login-element">
+
+				<input type="text"  value="<?php print($this->entries[0]->name); ?>" ng-model="user.name" />
+
+			</dd>
+
+			<dt id="password-label">
+
+				<label for="password" >Mot de pass</label>
+
+			</dt>
+
+			<dd id="password-element">
+
+				<input type="password"  value="<?php print($this->entries[0]->password); ?>" ng-model="user.password" />
+
+			</dd>
+
+
+
+			<dd id="Modifier-element">
+				<button ng-click="updateData();">Modifier</button></dd>
+		</dl>
+
+	</div>
+
+
+</div>
+
+
+<div  ng-controller="myCtrl_update"  ng-init="displayData()" >
+
+	<table  >
+
+		<tr ng-repeat="x in data1" >
+
+
+			<td>{{ x.id }} | {{ x.name }} | {{ x.email }} | </td>
+
+			</tr>
+
+		</table>
+
+</div>
+
+

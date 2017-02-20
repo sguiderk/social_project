@@ -1,0 +1,40 @@
+<div id="view-content">
+	<div class="content table-responsive table-full-width">
+		<table class="table table-hover table-striped">
+			<thead>
+			<tr>
+				<td>Nom</td>
+				<td>Email</td>
+				<td>Mot de passe </td>
+				<td>Photo</td>
+				<td>Suppression</td>
+			</tr>
+			</thead>
+			<tbody>
+			<?php foreach ($this->entries as $entry): ?>
+				<tr>
+					<td><?php echo $this->escape($entry->name); ?></td>
+					<td><?php echo $this->escape($entry->email); ?></td>
+					<td><?php echo $this->escape($entry->password); ?></td>
+
+					<td>
+						<?php if($entry->pathimg!=null): ?>
+							<img style="width: 100px;margin-left: 20px; margin-right: 20px;" src="/public/img/<?php echo $this->escape($entry->pathimg) ?>" />
+						<?php else:  ?>
+
+						<div style="text-align: center; font-size: 30px;"><i class="pe-7s-user"></i></div>
+					</td>
+
+					<?php endif; ?>
+
+
+					<td><a href="<?php echo $this->url(array('controller'=>'admin','action'=> 'delete'),'default',true)."?user=".$this->escape($entry->id);?>">
+							Supprimé </a> </td>
+				</tr>
+			<?php endforeach ?>
+			</tbody>
+
+		</table>
+	</div>
+
+</div>

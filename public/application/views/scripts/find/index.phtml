@@ -1,0 +1,12 @@
+
+Voici notre resultat you hooo
+
+<ul>
+   
+  
+    <?php foreach ($this->entries as $entry): ?>
+    <li><?php echo $this->escape($entry->name) ?></li>
+	  <li><?php echo $this->escape($entry->company) ?></li>
+    <?php endforeach ?>
+	  
+	</ul>

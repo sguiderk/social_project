@@ -1,0 +1,13 @@
+<br /><br />
+<div id="view-content">
+
+	<p>Voulez-vous vraiment supprimer l'actualité <strong><?php print($this->entries[0]->title); ?></strong> </p>
+
+
+	<a href="<?php echo $this->url(array('controller'=>'news','action'=> 'delete'),'default',true)."?validate=true&news=".$this->entries[0]->id;?>">
+		Oui </a>
+
+	<a href="<?php echo $this->url(array('controller'=>'news','action'=> 'index'),'default',true);?>">
+		Non </a>
+
+</div>

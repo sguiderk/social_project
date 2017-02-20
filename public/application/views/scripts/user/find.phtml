@@ -1,0 +1,24 @@
+<div id="view-content">
+
+
+	<p>Photo :
+
+		<?php if($this->entries[0]->pathimg!=null) { ?>
+			<img style="width: 100px;margin-left: 20px; margin-right: 20px;" src="/public/img/<?php echo $this->entries[0]->pathimg ?>" />
+		<?php } else  { ?>
+
+	<ul class="icons">
+		<li>	<a class="alt icon fa-user" href="#"></a></li>
+	</ul>
+
+	<?php } ?>
+	</p>
+
+	<p>Nom : <strong><?php print($this->entries[0]->name); ?></strong> </p>
+
+	<p>Email : <strong><?php print($this->entries[0]->email); ?></strong> </p>
+
+
+	<p>Société : <strong><?php print($this->entries[0]->company); ?></strong> </p>
+
+</div>

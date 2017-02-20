@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <nav>
+ 
+        <home>
+            <label>Accueil</label>
+            <order>1</order>
+            <module>default</module>
+            <controller>index</controller>
+            <action>index</action>
+            <resource>index</resource>
+        </home>
+
+
+        <news>
+            <label>News</label>
+            <order>2</order>
+            <module>default</module>
+            <controller>news</controller>
+            <action>index</action>
+            <resource>news</resource>
+        </news>
+
+
+        <user>
+            <label>Membres</label>
+            <order>3</order>
+            <module>default</module>
+            <controller>user</controller>
+            <action>index</action>
+            <resource>user</resource>
+        </user>
+
+
+        <contact>
+            <label>Contact</label>
+            <order>4</order>
+            <module>default</module>
+            <controller>contact</controller>
+            <action>index</action>
+            <resource>contact</resource>
+        </contact>
+
+
+        <Login>
+            <label>Login</label>
+            <order>5</order>
+            <module>default</module>
+            <controller>FormLogin</controller>
+            <action>index</action>
+            <resource>login</resource>
+        </Login>
+
+
+        <admin>
+            <label>Admin</label>
+            <order>6</order>
+            <module>default</module>
+            <controller>admin</controller>
+            <action>index</action>
+            <resource>admin</resource>
+        </admin>
+
+ <!--        <page1>
+            <label>Page 1</label>
+            <uri>page1</uri>
+            <pages>
+ 
+                <page1_1>
+                    <label>Page 1.1</label>
+                    <uri>page1/page1_1</uri>
+                </page1_1>
+ 
+            </pages>
+        </page1>-->
+ 
+    </nav>
+</config>
