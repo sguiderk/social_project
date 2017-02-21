@@ -23,12 +23,12 @@ app.controller('myCtrl_update',function($scope,$http){
         $http.get("../rest/user")
             .success(function(data){
 
+                $scope.user = data.loginHeader;
+
                 $scope.data1 = data.entries;
+                
 
-                $scope.userinfo = data.loginHeader;
 
-
-                alert($scope.userinfo);
 
             });
     }

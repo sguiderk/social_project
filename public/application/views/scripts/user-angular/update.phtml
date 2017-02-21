@@ -1,23 +1,17 @@
 <br /><br />
 <div id="view-content" ng-controller="myCtrl_update" ng-init="displayUser()" >
 
-
-	<tr ng-repeat="user in userinfo" >
-	<span> : {{ user.id }}</span>
-	<span> : {{ user.name }}</span>
-		</tr>
 	<div  >
 		<dl class="zend_form">
 
-			<dt id="id-label">
+			<dt id="id-label" style="display: none;">
 
 				<label for="id" ">id</label>
 
 			</dt>
 
-			<dd id="id-element">
-
-				<input type="text"   ng-model="user.id" />
+			<dd id="id-element" style="display: none;">
+				<input type="text" name="id"  value="{{user.id}}"  ng-model="user.id" />
 
 			</dd>
 
