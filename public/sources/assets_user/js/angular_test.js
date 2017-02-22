@@ -1,6 +1,14 @@
-var app = angular.module('myApp',[]);
 
-app.controller('myCtrl_update',function($scope,$http){
+
+var app = angular.module('myApp', ['ngFileUpload']);
+
+
+
+
+app.controller('myCtrl_update', ['$scope', 'Upload', '$timeout','$http' , function ($scope, Upload, $timeout,$http) {
+
+
+
 
     $scope.updateData=function(){
         $http.post("../rest/updateuser", {
@@ -26,7 +34,7 @@ app.controller('myCtrl_update',function($scope,$http){
                 $scope.user = data.loginHeader;
 
                 $scope.data1 = data.entries;
-                
+
 
 
 
@@ -41,5 +49,25 @@ app.controller('myCtrl_update',function($scope,$http){
             });
     }
 
+    $scope.uploadPic = function(file) {
+        file.upload = Upload.upload({
+            url: 'upload_file.php',
+            data: {file: file}
+        });
 
-});
+        file.upload.then(function (response) {
+            $timeout(function () {
+                file.result = response.data;
+            });
+        }, function (response) {
+            if (response.status > 0)
+                $scope.errorMsg = response.status + ': ' + response.data;
+        }, function (evt) {
+            // Math.min is to fix IE which reports 200% sometimes
+            file.progress = Math.min(50, parseInt(100.0 * evt.loaded / evt.total));
+        });
+    }
+
+
+
+}]);

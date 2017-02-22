@@ -16,10 +16,9 @@ class RestController extends Zend_Rest_Controller
             ->addActionContext('put', array("json"))
             ->addActionContext('user', array("json"))
             ->addActionContext('updateuser', array("json"))
+            ->addActionContext('uploadimage', array("json"))
             ->addActionContext('delete', array("json"))
             ->initContext('json');
-
-
 
     }
 
@@ -90,7 +89,23 @@ class RestController extends Zend_Rest_Controller
     }
 
 
-   
+    public function uploadimageAction()
+    {
+        if(isset($_FILES['file'])){
+            //The error validation could be done on the javascript client si
+
+
+            $adapter = new Zend_File_Transfer_Adapter_Http();
+
+            $adapter->setDestination('img');
+
+
+
+
+        }
+
+    }
+
     
     public function getAction()
     {

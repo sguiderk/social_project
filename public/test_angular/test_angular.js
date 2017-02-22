@@ -54,6 +54,10 @@ app.controller('myCtrl_update',function($scope,$http){
     }
 });
 
+
+
+
+
 app.controller('viewcontroller', function($scope, $http) {
 
 
