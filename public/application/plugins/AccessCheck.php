@@ -24,6 +24,9 @@ class Plugin_AccessCheck extends Zend_Controller_Plugin_Abstract{
             $request->setControllerName('FormLogin')
                 ->getActionName('index');
         }*/
+
+        
+
     }
 
 

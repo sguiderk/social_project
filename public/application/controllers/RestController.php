@@ -97,10 +97,31 @@ class RestController extends Zend_Rest_Controller
 
             $adapter = new Zend_File_Transfer_Adapter_Http();
 
-            $adapter->setDestination('img');
+            $adapter->setDestination(APPLICATION_PATH . '/../public/img');
 
+            if (!$adapter->receive()) {
+                $messages = $adapter->getMessages();
 
+                echo implode("\n", $messages);
+            }
 
+           $registre2 = new  Application_Model_UserMapper();
+
+            $user = new Application_Model_User();
+
+            $user->setPathimg($adapter->getFileName('file', false));
+
+            $user->setId(Zend_Auth::getInstance()->getStorage()->read()->id);
+
+            $user->setName(Zend_Auth::getInstance()->getStorage()->read()->name);
+
+            $user->setPassword(Zend_Auth::getInstance()->getStorage()->read()->password);
+
+            $user->setEmail(Zend_Auth::getInstance()->getStorage()->read()->email);
+
+            $registre2->save($user);
+
+        
 
         }
 

@@ -51,7 +51,7 @@ app.controller('myCtrl_update', ['$scope', 'Upload', '$timeout','$http' , functi
 
     $scope.uploadPic = function(file) {
         file.upload = Upload.upload({
-            url: 'upload_file.php',
+            url: '../rest/uploadimage',
             data: {file: file}
         });
 

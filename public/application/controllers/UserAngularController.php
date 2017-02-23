@@ -24,6 +24,13 @@ class UserAngularController extends Zend_Controller_Action
         $result = $usermapper  ->find($id);
 
         $this -> view -> entries = $result ;
+
+
+        if(Zend_Auth::getInstance()->hasIdentity()){
+            Zend_Registry::set('role',Zend_Auth::getInstance()->getStorage()->read()->role);
+        }else{
+            Zend_Registry::set('role','guest');
+        }
     }
 
 
