@@ -77,6 +77,13 @@
 					<?php echo $this->layout()->content ?>
 
 
+         <?php if(isset($this->loginHeader)) { ?>
+
+                   <iframe src="http://social.dev:3004/"  width="400" height="250" style="background: #fff;position: fixed; bottom: 0; right: 0; z-index:6;">
+                   	</iframe>
+          <?php } ?>
+                 
+
 				<!-- Main 
 					<div id="main">
 							<section id="one" class="tiles">

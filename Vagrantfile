@@ -7,13 +7,10 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.hostname = "benchmark"
-  config.vm.network :private_network, ip: "192.168.33.78"
+  config.vm.network :private_network, ip: "192.168.33.65"
 
-  config.vm.network :forwarded_port, host: 8080, guest: 80 
+  config.vm.network :forwarded_port, host: 1234, guest: 1234 
   
-  # allow connection to port 1080 for mailcatcher 
-  config.vm.network :forwarded_port, host: 1080, guest: 1080
-
 
  config.vm.provider :virtualbox do |vb|
     # Use VBoxManage to customize the VM.

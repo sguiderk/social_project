@@ -153,11 +153,15 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
 
         if(Zend_Auth::getInstance()->hasIdentity()){
+
             $userInfo = Zend_Auth::getInstance()->getStorage()->read();
             $view->loginHeader = $userInfo;
+            setcookie('PHPSESSNAME', $userInfo->name, time() + 360000, '/');
 
         }else {
+
             $view->isconnected = false;
+
         }
 
         $view->navigation()->menu()

@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+
+
+
+
 # ---------------------------------------
 #          Virtual Machine Setup
 # ---------------------------------------
@@ -106,6 +110,16 @@ apt-get install -y phpmyadmin
 
 # Make Composer available globally
 ln -s /etc/phpmyadmin/apache.conf /etc/apache2/sites-enabled/phpmyadmin.conf
+
+
+# Creating database  
+mysql -uroot -proot  -e "create database zenddatabase"; 
+
+
+# Importing database
+mysql -uroot -proot zenddatabase < /vagrant/db/zenddatabase.sql
+
+
 
 # Restarting apache to make changes
 service apache2 restart
@@ -226,3 +240,21 @@ mv composer.phar /usr/local/bin/composer
 
 #!/bin/bash
  
+
+#  begin installing node.js server  
+
+sudo apt-get install -y nodejs
+
+#  end installing node.js server 
+
+# begin installing express 4.15.2
+
+npm install --save express@4.15.2
+
+# end installing express 4.15.2
+
+# begin installing socket.io
+
+npm install --save socket.io
+
+# end installing socket.io
