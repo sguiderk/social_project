@@ -1,0 +1,23 @@
+
+-- Generating shema to database 
+
+   php doctrine.php orm:schema-tool:update --force 
+
+-- Generating mapping for entities 
+
+	php doctrine.php orm:convert-mapping  --from-database annotation ../application/models/orm_entity/
+
+-- Generation  setters getters for entities
+
+	php doctrine.php orm:generate-entities --generate-annotations="true"  ../application/models/orm_entity/
+
+
+
+to generate an new entity we do this folowing steps : 
+
+
+  - 1 create the model  classname.php into folder orm with the class name and attributes
+
+  - 2 php doctrine.php orm:schema-tool:update --force   ==>  will generate the table in the database 
+
+  - 3 php doctrine.php orm:generate-entities --generate-annotations="true"  ../application/models/ormentity/   ==>  creating the entity with attributes and gettes ,setters 

@@ -71,6 +71,21 @@ class AdminController extends Zend_Controller_Action
 
     }
 
+   
+    public function generatedoctrineAction()
+    {
+        // action body
+
+
+   echo shell_exec('sh library/generatedoctrine.sh');
+
+
+     $this->_helper->viewRenderer->setNoRender(true);
+
+
+    }
+
+
     public function substrwords($text, $maxchar, $end='...') {
         if (strlen($text) > $maxchar || $text == '') {
             $words = preg_split('/\s/', $text);

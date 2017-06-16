@@ -24,7 +24,7 @@ class IndexController extends Zend_Controller_Action
     {
         // action body
 		
-  /*    if(Zend_Auth::getInstance()->hasIdentity()){
+    /* if(Zend_Auth::getInstance()->hasIdentity()){
 
             $userInfo = Zend_Auth::getInstance()->getStorage()->read();
 
@@ -33,9 +33,33 @@ class IndexController extends Zend_Controller_Action
             $this->view->name = $userInfo->name;
 
             $this->view->email = $userInfo->email;
-        }*/
 
-	
+
+        }
+
+       $entityManager =  Zend_Registry::get('em');
+
+       $newProductName = "test";
+
+       $product = new Application_Model_Products();
+       $product->setName($newProductName);
+
+       $entityManager ->persist($product);
+       $entityManager ->flush();
+
+
+       $productRepository =  $entityManager->getRepository('Application_Model_Products');
+       $products = $productRepository->findAll();
+
+       foreach ($products as $product) {
+       echo sprintf("-%s\n", $product->getName()).'<br/>';
+       }
+
+
+       echo "Created Product with ID " . $product->getId() . "\n";
+      */
+        
+
     }
 
     public function saveAction()
